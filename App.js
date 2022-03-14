@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Dimensions, Button } from "react-native";
-import "./app.css";
+
 
 //component imports
 import Pharmacies from "./Components/Pharmacies";
