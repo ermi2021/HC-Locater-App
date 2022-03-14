@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useRef, useState, useEffect, useContext }  from "react";
 import MapView, { Callout, Marker, Polyline } from "react-native-maps";
 import {
   View,
@@ -9,6 +9,9 @@ import {
   Image,
   Alert,
 } from "react-native";
+
+//expo imports
+import * as Location from "expo-location";
 
 const { width, height } = Dimensions.get("window");
 function index(props) {
@@ -78,7 +81,7 @@ function index(props) {
             style={{ height: 50, width: 50 }}
           />
         </Marker>
-        <DrawPolyLine />
+       
       </MapView>
     </View>
   );

@@ -5,6 +5,7 @@ import "./app.css";
 //component imports
 import Pharmacies from "./Components/Pharmacies";
 import HealthCenter from "./Components/HealthCenter";
+import DrawerContent from "./Utilies/DrawerContent";
 
 //navigation imports
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -63,7 +64,7 @@ function drawerRoutes() {
     <Drawer.Navigator
       drawerType="front"
       initialRouteName="Home"
-      drawerContent={(props) => <UserDrawerContent {...props} />}
+      drawerContent={(props) => <DrawerContent {...props} />}
     >
       <Drawer.Screen
         name="Home"
