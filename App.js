@@ -1,7 +1,6 @@
-import { StatusBar } from "expo-status-bar";
+
+import 'react-native-gesture-handler';
 import { StyleSheet, Text, View, Dimensions, Button } from "react-native";
-
-
 //component imports
 import Pharmacies from "./Components/Pharmacies";
 import HealthCenter from "./Components/HealthCenter";
@@ -10,7 +9,7 @@ import DrawerContent from "./Utilies/DrawerContent";
 //navigation imports
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -21,7 +20,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const { height, width } = Dimensions.get("window");
@@ -58,25 +57,35 @@ function TypeRoutes() {
     </Tab.Navigator>
   );
 }
-
-function drawerRoutes() {
+function Header(props) {
+  const head_title = props.title;
   return (
-    <Drawer.Navigator
-      drawerType="front"
-      initialRouteName="Home"
-      drawerContent={(props) => <DrawerContent {...props} />}
-    >
-      <Drawer.Screen
-        name="Home"
-        component={TypeRoutes}
-        options={{
-          headerTitle: "Health Center Locater System",
-          headerShown: false,
-        }}
-      />
-    </Drawer.Navigator>
+    <View style={{ display: "flex", flexDirection: "row" }}>
+      <Entypo name="menu" size={30} />
+      <Text style={{ marginHorizontal: 10, fontWeight: "700", fontSize: 16 }}>
+        {head_title}
+      </Text>
+    </View>
   );
 }
+// function drawerRoutes() {
+//   return (
+//     <Drawer.Navigator
+//       drawerType="front"
+//       initialRouteName="Home"
+//       drawerContent={(props) => <DrawerContent {...props} />}
+//     >
+//       <Drawer.Screen
+//         name="Home"
+//         component={TypeRoutes}
+//         options={{
+//           headerTitle: <Header title="Home" />,
+//           headerShown: false,
+//         }}
+//       />
+//     </Drawer.Navigator>
+//   );
+// }
 
 export default function App() {
   return (
@@ -84,9 +93,9 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={drawerRoutes}
+          component={TypeRoutes}
           options={{
-            headerTitle: "Home",
+            headerTitle: <Header title="Profle" />,
             headerShown: false,
           }}
         />

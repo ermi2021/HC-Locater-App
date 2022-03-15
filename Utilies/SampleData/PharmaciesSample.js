@@ -1,18 +1,4 @@
-import React from "react";
-import {
-  View,
-  Text,
-  Dimensions,
-  StatusBar,
-  ActivityIndicator,
-  Image,
-  Alert,
-} from "react-native";
-import Map from "../../Utilies/Map";
-
-function Pharmacies(props) {
-
-  const PharmaciesSample = [
+export const PharmaciesSample = [
     {
         "Name":'Anbessa Pharmacy',
         "Phone_number":"091247892",
@@ -42,14 +28,3 @@ function Pharmacies(props) {
         "longitude":38.76005732552519,
     }
 ];
-  return (
-    <View>
-      <Text style={{ textAlign: "center", fontWeight: "700" }}>
-          Pharmacies Around You
-      </Text>
-      <Map type="ph" data={PharmaciesSample}/>
-    </View>
-  );
-}
-
-export default Pharmacies;
